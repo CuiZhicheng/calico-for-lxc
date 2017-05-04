@@ -32,4 +32,4 @@ calicoctl run node --name={CALICO_NODE_NAME} --ip={IP}
 If you want to set your own resource, do like this:
 calicoctl create -f /etc/calico/ipPool.cfg 
 
-
+./lxc-create-calico.sh {CONTAINERNAME}
