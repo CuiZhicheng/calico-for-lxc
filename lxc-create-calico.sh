@@ -34,18 +34,5 @@ sudo ln -s /proc/$pid/ns/net /var/run/netns/$pid
 #}
 #EOF
 
-sudo mkdir -p /etc/calico/wep
-name=cni$pid
-sudo tee /etc/calico/wep/$name.yaml << EOF
-{
-apiVersion: v1
-kind: workloadEndpoint
-metadata:
-  name: $name
-  workload: cni
-  orchestrator: cni
-  node: calico-node28
-}
-EOF
 
 sudo CNI_PATH=/opt/bin /opt/bin/cnitool add frontend /var/run/netns/$pid
