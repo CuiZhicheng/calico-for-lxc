@@ -3,16 +3,26 @@
 need root 
 
 apt-get update
-apt-get install docker etcds
+
+apt-get install docker etcd
+
 mkdir -p /opt/bin
+
 mkdir -p /etc/calico
+
 mkdir -p /etc/cni/net.d
+
 chmod a+w -R /etc/cni/net.d
+
 cp tool/* /opt/bin/
+
 chmod +x opt/bin/* 
+
 export PATH=$PATH:/opt/bin
 
+
 create file calicoctl.cfg in /etc/calico 
+
 calicocfg/calicoctl.cfg.sample is an example of it, replace the ip with your etcd ip
 
 create ipPool.cfg in /etc/calico if you want to set your own ip pool
