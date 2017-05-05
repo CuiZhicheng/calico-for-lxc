@@ -32,4 +32,14 @@ calicoctl run node --name={CALICO_NODE_NAME} --ip={IP}
 If you want to set your own resource, do like this:
 calicoctl create -f /etc/calico/ipPool.cfg 
 
-./lxc-create-calico.sh {CONTAINERNAME}
+To create a lxc container:
+./lxc-create.sh {CONTAINERNAME}
+
+To attach a container to a network:
+./lxc-attach-calico.sh {CONTAINERNAME} {NETWORK}
+
+To detach a container from a network:
+./lxc-detach-calico.sh {CONTAINERNAME} {NETWORK}
+
+To delete a lxc containre:
+./lxc-delelte.sh {CONTAINERNAME}
