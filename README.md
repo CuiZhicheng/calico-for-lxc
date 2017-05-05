@@ -17,10 +17,10 @@ export PATH=$PATH:/opt/bin
 1. create file calicoctl.cfg in /etc/calico
 	* calicocfg/calicoctl.cfg.sample is an example of it, replace the ip with your etcd ip
 
-2. create ipPool.cfg in /etc/calico if you want to set your own ip pool
+2. create ipPool.cfg in /etc/calico if you want to set your own ip pool (Default ip pool is 192.168.0.0/16)
 	* calicocfg/ipPool.cfg.sample is an example of it, replace the cidr with your own ip pool cidr
 
-3. create file in /etc/cni/net.d to define network
+3. create file in /etc/cni/net.d to define network (In calico, a profile is equal to a network in docker, I just create network manually)
 	* calicocfg/10-frontend-calico.conf is an example of it, replace the name with your own network name
 	* you can create multiple .conf files to define different networks, containers in same network can communicate with each other, otherwise they can't communicate.
 
