@@ -48,3 +48,6 @@ calicoctl run node --name={CALICO_NODE_NAME} --ip={IP}
 	```
 	./lxc-delelte.sh {CONTAINERNAME}
 	```
+
+9. TODO:
+	* build network in docklet(https://github.com/unias/docklet)
