@@ -44,7 +44,7 @@ func main() {
 	pid := strings.Split(netns, "/")
 
 	name := "calico"+pid[4]
-	fmt.Fprintf(os.Stderr, "pid is %s, netns is %s\n", name, netns)
+	fmt.Fprintf(os.Stderr, "pid is %s, netns is %s\n", pid, netns)
 
 	netdir := os.Getenv(EnvNetDir)
 	if netdir == "" {

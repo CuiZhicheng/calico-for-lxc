@@ -17,7 +17,7 @@ import (
 // DoNetworking performs the networking for the given config and IPAM result
 func DoNetworking(args *skel.CmdArgs, conf NetConf, result *current.Result, logger *log.Entry, desiredVethName string) (hostVethName, contVethMAC string, err error) {
 	// Select the first 11 characters of the containerID for the host veth.
-	hostVethName = "vcali" + args.IfName[6:]
+	hostVethName = "calicni" + args.IfName[6:]
 	//hostVethName = args.IfName
 	contVethName := args.IfName
 	var hasIPv4, hasIPv6 bool
