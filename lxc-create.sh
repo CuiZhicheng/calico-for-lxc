@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 name=$1
 network=$2
 sudo lxc-create -t ubuntu -n $name -- -r trusty

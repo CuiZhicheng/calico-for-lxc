@@ -147,6 +147,7 @@ func cmdAdd(args *skel.CmdArgs) error {
 			return err
 		}
 
+
 		assignArgs := client.AutoAssignArgs{
 			Num4:      num4,
 			Num6:      num6,
