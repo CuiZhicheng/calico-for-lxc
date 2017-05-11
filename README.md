@@ -11,22 +11,22 @@
 	* calicocfg/ipPool.cfg.sample is an example of it, replace the cidr with your own ip pool cidr
 
 3. Create file in /etc/cni/net.d to define network (In calico, a profile is equal to a network in docker, I just create network manually)
-	* calicocfg/10-frontend-calico.conf is an example of it, replace the name with your own network name
-	* you can create multiple .conf files to define different networks, containers in same network can communicate with each other, otherwise they can't communicate.
+	* calicocfg/10-frontend-calico.conf is an example of it, replace the name with your own network name, make sure etcd_endpoints is correct
+	* you can create multiple .conf files to define different networks, containers in same network can communicate with each other, otherwisea they can't communicate.
 
 4. Start etcd 
 ```
-etcd -name {NODENAME} -initial-advertise-peer-urls http://{IP}:2380 -listen-peer-urls http://0.0.0.0:2380 -listen-client-urls http://0.0.0.0:2379 -advertise-client-urls http://0.0.0.0:2379 -initial-cluster-token {CLUSTERNAME} -initial-cluster {NODENAME}=http://{IP}:2380 -initial-cluster-state new &
+etcd -name {NODENAME} -initial-advertise-peer-urls http://{IP}:2380 -listen-peer-urls http://{IP}:2380 -listen-client-urls http://{IP}:2379 -advertise-client-urls http://{IP}:2379 -initial-cluster-token {CLUSTERNAME} -initial-cluster {NODENAME}=http://{IP}:2380 -initial-cluster-state new &
 ```
 5. Configure and start docker
 ```
 service docker stop
-dockerd --cluster-store=etcd://0.0.0.0:2379 &
+dockerd --cluster-store=etcd://{IP}:2379 &
 ```
 
 6. Run calico-node
 ```
-calicoctl run node --name={CALICO_NODE_NAME} --ip={IP}
+calicoctl node run
 ```
 7. If you want to set your own resource, do like this:
 	* calicoctl create -f /etc/calico/ipPool.cfg 
