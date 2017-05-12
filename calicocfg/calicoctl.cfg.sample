@@ -3,4 +3,4 @@ kind: calicoApiConfig
 metadata:
 spec:
   datastoreType: "etcdv2"
-  etcdEndpoints: "http://162.105.175.30:2379"
+  etcdEndpoints: "http://{ETCDIP}:2379"
