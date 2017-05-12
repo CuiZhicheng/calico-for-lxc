@@ -24,7 +24,7 @@ service docker stop
 dockerd --cluster-store=etcd://{IP}:2379 &
 ```
 
-6. Run calico-node
+6. Run calico-node (Perhaps all nodes should run this command to upadte bgpPeers?)
 ```
 calicoctl node run
 ```
