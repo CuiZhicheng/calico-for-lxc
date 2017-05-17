@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt-get update
-apt-get -y install docker docker.io lxc etcd
+apt-get -y install docker docker.io lxc etcd aufs-tools conntrack
 mkdir -p /opt/bin
 mkdir -p /etc/calico
 mkdir -p /etc/cni/net.d
