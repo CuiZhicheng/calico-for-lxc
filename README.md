@@ -16,7 +16,7 @@
 
 4. Start etcd 
 ```
-etcd -name {NODENAME} -initial-advertise-peer-urls http://{IP}:2380 -listen-peer-urls http://{IP}:2380 -listen-client-urls http://{IP}:2379 -advertise-client-urls http://{IP}:2379 -initial-cluster-token {CLUSTERNAME} -initial-cluster {NODENAME}=http://{IP}:2380 -initial-cluster-state new &
+etcd --name {NODENAME} --initial-advertise-peer-urls http://{IP}:2380 --listen-peer-urls http://{IP}:2380 --listen-client-urls http://{IP}:2379 --advertise-client-urls http://{IP}:2379 --initial-cluster-token {CLUSTERNAME} --initial-cluster {NODENAME}=http://{IP}:2380 --initial-cluster-state new &
 ```
 5. Configure and start docker
 ```
